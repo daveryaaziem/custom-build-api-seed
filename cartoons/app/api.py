@@ -19,6 +19,8 @@ class Cartoon(db.Model):
     __tablename__ = 'cartoons'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
+    image = db.Column(db.String(255))
+    score = db.Column(db.Integer)
 
     def get_url(self):
         return url_for('get_cartoon', id=self.id, _external=True)
@@ -26,12 +28,16 @@ class Cartoon(db.Model):
     def export_data(self):
         return {
             'self_url': self.get_url(),
-            'name': self.name
+            'name': self.name,
+	    'image': self.image,
+	    'score': self.score
         }
 
     def import_data(self, data):
         try:
             self.name = data['name']
+	    self.image = data['image']
+	    self.score = data['score']
         except KeyError as e:
             raise ValidationError('Invalid cartoon: missing ' + e.args[0])
         return self
