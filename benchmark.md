@@ -1,3 +1,12 @@
+```sh
+
+Server Software:        Werkzeug/0.9.6
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /cartoons/
+Document Length:        1104 bytes
+
 Concurrency Level:      100
 Time taken for tests:   8.699 seconds
 Complete requests:      1000
@@ -26,4 +35,4 @@ Percentage of the requests served within a certain time (ms)
   98%    937
   99%    940
  100%    951 (longest request)
-
+```
