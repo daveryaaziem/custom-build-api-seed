@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.10.11"
+  config.vm.network :forwarded_port, host: 5000, guest: 80  
 
   # Setup web server
   config.vm.provision "shell", path: 'install_script.sh', args: '/vagrant', privileged: false
